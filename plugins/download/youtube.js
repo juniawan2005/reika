@@ -34,7 +34,7 @@ exports.run = {
                rowId: `${isPrefix}convert ${args[0]}|${json.id}|mp4|${v.k}|${v.size}|${json.token}|${json.expires}`,
                description: ``
             }))
-            client.sendList(m.chat, '', `Choose type and quality 🍟`, '', 'Tap!', sections, m)
+            client.sendList(m.chat, '', `Pilih Tipe Dan Kualitasnya`, '', 'Disini', sections, m)
          } else if (command == 'convert') {
             if (!text) return
             const p = text.split`|`
@@ -42,10 +42,10 @@ exports.run = {
             const json = await Func.fetchJson(`https://yt.nxr.my.id/convert?url=${p[0]}&id=${p[1]}&ext=${p[2]}&quality=${p[3]}&size=${p[4]}&token=${p[5]}&expires=${p[6]}`)
             if (!json.status || !json.data.url) return client.reply(m.chat, global.status.fail, m)
             if (json.data.extension == 'mp3') {
-               let caption = `乂  *Y T - P L A Y*\n\n`
-               caption += `	◦  *Title* : ${json.title}\n`
-               caption += `	◦  *Size* : ${json.data.size}\n`
-               caption += `	◦  *Duration* : ${json.duration}\n`
+               let caption = `*Y O U T U B E*\n\n`
+               caption += `	◦  *Judul* : ${json.title}\n`
+               caption += `	◦  *Ukuran* : ${json.data.size}\n`
+               caption += `	◦  *Durasi* : ${json.duration}\n`
                caption += `	◦  *Bitrate* : ${json.data.quality}\n\n`
                caption += global.footer
                let chSize = Func.sizeLimit(json.data.size, global.max_upload)
@@ -60,11 +60,11 @@ exports.run = {
                   })
                })
             } else {
-               let caption = `乂  *Y T - M P 4*\n\n`
-               caption += `	◦  *Title* : ${json.title}\n`
-               caption += `	◦  *Size* : ${json.data.size}\n`
-               caption += `	◦  *Duration* : ${json.duration}\n`
-               caption += `	◦  *Quality* : ${json.data.quality}\n\n`
+               let caption = `*Y T - M P 4*\n\n`
+               caption += `	◦  *Judul* : ${json.title}\n`
+               caption += `	◦  *Ukuran* : ${json.data.size}\n`
+               caption += `	◦  *Durasi* : ${json.duration}\n`
+               caption += `	◦  *Kualitas* : ${json.data.quality}\n\n`
                caption += global.footer
                let chSize = Func.sizeLimit(json.data.size, global.max_upload)
                if (chSize.oversize) return client.reply(m.chat, `💀 File size (${json.data.size}) exceeds the maximum limit, download it by yourself via this link : ${await (await scrap.shorten(json.data.url)).data.url}`, m)
@@ -83,12 +83,12 @@ exports.run = {
             client.sendReact(m.chat, '🕒', m.key)
             const json = await Func.fetchJson('https://yt.nxr.my.id/yt2?url=' + args[0] + '&type=audio')
             if (!json.status || !json.data.url) return client.reply(m.chat, global.status.fail, m)
-            let caption = `乂  *Y T - P L A Y*\n\n`
-            caption += `	◦  *Title* : ${json.title}\n`
-            caption += `	◦  *Size* : ${json.data.size}\n`
-            caption += `	◦  *Duration* : ${json.duration}\n`
-            caption += `	◦  *Bitrate* : ${json.data.quality}\n\n`
-            caption += global.footer
+            let caption = `*Y T - M P 3*\n\n`
+               caption += `	◦  *Judul* : ${json.title}\n`
+               caption += `	◦  *Ukuran* : ${json.data.size}\n`
+               caption += `	◦  *Durasi* : ${json.duration}\n`
+               caption += `	◦  *Kualitas* : ${json.data.quality}\n\n`
+               caption += global.footer
             let chSize = Func.sizeLimit(json.data.size, global.max_upload)
             if (chSize.oversize) return client.reply(m.chat, `💀 File size (${json.data.size}) exceeds the maximum limit, download it by yourself via this link : ${await (await scrap.shorten(json.data.url)).data.url}`, m)
             client.sendMessageModify(m.chat, caption, m, {
@@ -112,7 +112,7 @@ exports.run = {
                rowId: `${isPrefix}convert ${args[0]}|${json.id}|mp4|${v.k}|${v.size}|${json.token}|${json.expires}`,
                description: ``
             }))
-            client.sendList(m.chat, '', `Choose quality you want 🍟`, '', 'Tap!', [{
+            client.sendList(m.chat, '', `Pilih Tipe Dan Kualitasnya`, '', 'Disini', [{
                rows
             }], m)
          }
