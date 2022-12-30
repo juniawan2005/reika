@@ -21,7 +21,7 @@ exports.run = {
             rowId: `${isPrefix}yt ${v.url}`,
             description: ``
          }))
-         client.sendList(m.chat, '', `Showing search results for : “${text}”, select below the title you want to download. 🍟`, '', 'Tap!', [{
+         client.sendList(m.chat, '', `Hasil dari pencarian : “${text}”, select below the title you want to download. 🍟`, '', 'Tap!', [{
             rows
          }], m)
       } catch (e) {
